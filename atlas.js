@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+var cors = require('cors');
 
 const connect_str = "mongodb+srv://useradmin:useradmin@cluster0.xqesyis.mongodb.net/College?retryWrites=true&w=majority"
 
+app.use(express.json());
+app.use(cors());
 
 mongoose.connect(connect_str, { useNewUrlParser: true , useUnifiedTopology: true})
 	.then( () => console.log("Connected successfully...") )
