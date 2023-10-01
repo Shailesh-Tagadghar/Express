@@ -1,10 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
+import Students from './Students';
 
 function App() {
   return (
     <div>
-      Hello React App
+      <Students />
     </div>
   );
 }
