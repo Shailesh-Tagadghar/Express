@@ -1,0 +1,28 @@
+<script>
+    function Circle(r) {
+        this.radius = r;
+
+        this.getRadius = ()=> {
+            console.log(this.radius);
+        }
+
+        this.area = () =>{
+            console.log(3.14 * this.radius * this.radius);
+        }
+
+        this.circ = () => {
+            console.log(2 * 3.14 * this.radius);
+        }
+
+    }
+
+   // obj = new Circle(5) //new Circle(7)
+   // obj.getRadius()
+
+    obj = new Circle(5)
+    obj.area();
+
+    obj2 = new Circle(7)
+    obj2.circ();
+
+</script>
