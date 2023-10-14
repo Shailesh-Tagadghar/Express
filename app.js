@@ -1,9 +1,13 @@
 const { log } = require("console")
 const express = require("express")
 const app = express()
+var cors = require('cors');
 const mongoose = require("mongoose");
 
-const conn_str="mongodb+srv://admin:admin@cluster0.se5bb8j.mongodb.net/?retryWrites=true&w=majority"
+app.use(cors());
+app.use(express.json());
+
+const conn_str="mongodb+srv://admin:admin@cluster0.se5bb8j.mongodb.net/student?retryWrites=true&w=majority"
 
 mongoose.connect(conn_str, { useNewUrlParser: true , useUnifiedTopology: true})
 	.then( () => console.log("Connected successfully...") )
@@ -44,6 +48,7 @@ app.put("/students", async (req, res)=>{
     // var result= await student.updateOne({name: "neha"},{$set:{city:"dehli"}})
     // var result = await student.updateOne({ _id: "65227c5060687051fff8efb8"},{$set : {city:"turbhe"}})
     var result = await student.updateOne({ _id: req.body.id},{$set : req.body})
+    console.log(req.body);
 
     res.send("record updated successfull")
 })
@@ -63,7 +68,7 @@ app.get("/students/:id", async (req,res)=>{
 
 
 app.get("/",(req,res)=>{
-    res.send("Hell from express ")
+    res.send("Hello from express ")
 })
 
 app.listen(8989,()=>{
