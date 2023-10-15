@@ -51,7 +51,7 @@ app.put("/students", async (req, res)=>{
     var result = await student.updateOne({ _id: req.body.id},{$set : req.body})
     console.log(req.body);
 
-    res.send("record updated successfull")
+    res.send({"result":"record updated successfull"})
 })
 
 app.get("/students/:id", async (req,res)=>{
