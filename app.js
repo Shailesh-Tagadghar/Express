@@ -41,6 +41,7 @@ app.post("/students", async (req, res)=>{
     // var result=obj.save();
 
     // res.send("record inserted successfully.....")
+    res.send({"result":"record inserted successfully....."});
 })
 
 app.put("/students", async (req, res)=>{
